@@ -1,0 +1,90 @@
+.dashboard-home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 15rem;
+    min-height: 100vh;
+
+    background-color: transparent;
+    background-image: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.253) 60%,
+            rgba(26, 25, 29, 0.493) 100%
+        ),
+        url("../../assets/images/background.jpg");
+    background-position: center center;
+    background-size: cover;
+
+    opacity: 0;
+    animation: fadeIn 1s 1.5s forwards;
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // gap: 4rem;
+        justify-content: space-between;
+
+        background: rgba(26, 25, 29, 0.67);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(9.1px);
+        -webkit-backdrop-filter: blur(9.1px);
+        border: 1px solid rgba(26, 25, 29, 0.69);
+        padding: 5rem 5rem 2rem;
+        border-radius: 0.8rem;
+    }
+    
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        min-height: 30rem;
+    }
+
+    .input{
+        padding: 1rem 2rem;
+        border-radius: 0.8rem;
+        border: none;
+        width: 30rem;
+        font-family: "Montserrat", sans-serif;
+        font-size: 2rem;
+    }
+
+    .input-file{
+
+        width: 30rem;
+        font-family: "Montserrat", sans-serif;
+        font-size: 2rem;
+    }
+
+    .input-submit{
+        border: 1px solid white;
+        border-radius: 0.8rem;
+
+        font-size: 2rem;
+
+        color: white;
+        padding: 1rem 2rem;
+        background-color: transparent;
+        transition: all 0.2s;
+        cursor: pointer;
+        font-family: "Montserrat", sans-serif;
+
+        &:hover {
+            transform: translateY(-2px);
+            background-color: white;
+            color: rgb(26, 25, 29);
+            border: none;
+        }
+    }
+
+    .hr{
+        border-top: 1px solid grey;
+        height: 2px;
+        width: 130%;
+        margin: 2rem 0;
+    }
+}

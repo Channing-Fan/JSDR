@@ -1,0 +1,144 @@
+@import "../../scss/variables.scss";
+
+.about-me {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+    padding: 8rem 15rem;
+    min-height: 100vh;
+
+    background-color: transparent;
+    background-image: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.253) 60%,
+            rgba(26, 25, 29, 0.493) 100%
+        ),
+        url("../../assets/images/background.jpg");
+    background-position: center center;
+    background-size: cover;
+
+    opacity: 0;
+    animation: fadeIn 1s 1.5s forwards;
+
+    &__description {
+        flex-basis: 45%;
+
+        &__heading {
+            color: $primary-color;
+        }
+
+        &__paragraph {
+            font-size: 20px;
+            font-family: "Montserrat", sans-serif;
+            line-height: 3rem;
+            opacity: 0;
+            animation: bounceIn 1s 1.5s forwards;
+        }
+
+        &__list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            list-style: none;
+
+            &__item {
+                margin-left: -2rem;
+                font-size: 20px;
+                font-family: "Montserrat", sans-serif;                opacity: 0;
+                animation: bounceIn 1s 1.5s forwards;
+                cursor: pointer;
+
+                &::before {
+                    content: "\00BB";
+                    color: $primary-color;
+                    font-weight: bold;
+                    display: inline-block;
+                    width: 1em;
+                    margin-left: -1em;
+                    margin-right: 1rem;
+                    transition: all 0.2s;
+                }
+
+                &:hover {
+                    &::before {
+                        padding-left: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    &__illustration {
+        flex-basis: 55%;
+        opacity: 0;
+        animation: backInRight 1s 1.5s forwards;
+        &__resource {
+            width: 100%;
+            border: 1px solid $primary-color;
+            box-shadow: 8px 8px 15px black;
+            border-radius: 0.5rem;
+        }
+    }
+}
+
+// Media Queries to make mobile responsive
+
+@media screen and (max-width: 1300px) {
+    .about-me {
+        gap: 6rem;
+        padding: 4rem 10rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .about-me {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 6rem;
+        padding: 4rem 10rem;
+
+        &__description {
+            &__list {
+                gap: 0.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .about-me {
+        gap: 3rem;
+        padding: 2rem 3rem;
+
+        &__description {
+            &__paragraph {
+                font-size: 16px;
+            }
+
+            &__list {
+                &__item {
+                    font-size: 16px;
+
+                    &:hover {
+                        &::before {
+                            padding-left: unset;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__illustration {
+            flex-basis: 60%;
+            opacity: 0;
+            animation: backInRight 1s 1.5s forwards;
+            &__resource {
+                width: 100%;
+                border: 1px solid $primary-color;
+                box-shadow: 8px 8px 15px black;
+                border-radius: 0.5rem;
+            }
+        }
+    }
+}

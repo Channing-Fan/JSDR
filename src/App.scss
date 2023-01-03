@@ -1,0 +1,61 @@
+@import 'loaders.css/src/animations/line-scale.scss';
+@import 'animate.css';
+@import './scss/variables.scss';
+
+
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+
+input,
+textarea {
+  font-family: Montserrat, sans-serif;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.loader-hidden {
+  display: none;
+}
+
+.loader-active {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: fadeOut 1s 1s forwards;
+}
+
+h1 {
+  font-size: 6rem;
+  line-height: 8.5rem;
+  color: $white;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+@media screen and (max-width: 700px){
+  h1 {
+    font-size: 3rem;
+    line-height: 3rem;
+    color: $white;
+    font-weight: 600;
+  }
+}

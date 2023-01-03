@@ -1,0 +1,154 @@
+@import '../../scss/variables.scss';
+
+.portfolio {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8rem;
+	padding: 8rem 15rem;
+	min-height: 100vh;
+
+	background-color: transparent;
+	background-image: linear-gradient(
+			180deg,
+			rgba(0, 0, 0, 0.253) 60%,
+			rgba(26, 25, 29, 0.493) 100%
+		),
+		url('../../assets/images/background.jpg');
+	background-position: center center;
+	background-size: cover;
+
+	opacity: 0;
+	animation: fadeIn 1s 1.5s forwards;
+
+	&__description {
+		flex-basis: 40%;
+
+		&__heading {
+			color: $primary-color;
+		}
+
+		&__paragraph {
+			font-size: 20px;
+			font-family: Montserrat, sans-serif;
+			opacity: 0;
+			animation: bounceIn 1s 1.5s forwards;
+		}
+	}
+
+	&__projects {
+		flex-basis: 60%;
+		width: 60%;
+		display: flex;
+		align-items: center;
+		gap: 3rem;
+		opacity: 0;
+		animation: bounceIn 1s 1.5s forwards;
+		padding: 2px;
+
+		&__project {
+			border: 1px solid $primary-color;
+			border-radius: 0.5rem;
+			cursor: pointer;
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+
+			&__head {
+				height: 70%;
+			}
+
+			&__image {
+				width: 100%;
+			}
+
+			&__body {
+				padding: 0 1.5rem;
+
+				&__heading {
+					color: $primary-color;
+					font-size: 18px;
+				}
+
+				&__description {
+					font-family: Montserrat, sans-serif;
+					font-size: 15px;
+				}
+			}
+		}
+	}
+}
+
+// Carousel Styles
+.swiper-button-prev:after {
+	display: none;
+}
+
+.swiper-button-next:after {
+	display: none;
+}
+
+.prev {
+	cursor: pointer;
+	font-family: Montserrat, sans-serif;
+	color: $primary-color;
+}
+
+.next {
+	cursor: pointer;
+	font-family: Montserrat, sans-serif;
+	color: $primary-color;
+}
+
+// Media Queries to make mobile responsive
+@media screen and (max-width: 1300px) {
+	.portfolio {
+		gap: 6rem;
+		padding: 4rem 10rem;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.portfolio {
+		display: flex;
+		flex-direction: column;
+		gap: 6rem;
+		padding: 4rem 10rem;
+
+		&__projects {
+			width: 100%;
+		}
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.portfolio {
+		gap: 3rem;
+		padding: 2rem 3rem;
+
+		&__description {
+			&__paragraph {
+				font-size: 16px;
+			}
+		}
+
+		&__projects {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+	}
+}
+
+// .portfolio-content {
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// }
+
+// .portfolio-item {
+// 	img {
+// 		width: 200px;
+// 	}
+// 	opacity: 0;
+// 	animation: backInRigh 1s 1s forwards;
+// }

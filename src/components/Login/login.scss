@@ -1,0 +1,114 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding: 8rem 15rem;
+    min-height: 100vh;
+
+    background-color: transparent;
+    background-image: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.253) 60%,
+            rgba(26, 25, 29, 0.493) 100%
+        ),
+        url("../../assets/images/background.jpg");
+    background-position: center center;
+    background-size: cover;
+
+    opacity: 0;
+    animation: fadeIn 1s 1.5s forwards;
+
+    .login-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 3rem;
+        margin: 0 0 3rem 0;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // gap: 4rem;
+        justify-content: space-between;
+
+        background: rgba(26, 25, 29, 0.67);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(9.1px);
+        -webkit-backdrop-filter: blur(9.1px);
+        border: 1px solid rgba(26, 25, 29, 0.69);
+        padding: 5rem;
+        border-radius: 0.8rem;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 2rem;
+        min-height: 30rem;
+    }
+
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .input-mail,
+    .input-password {
+        padding: 1rem 2rem;
+        border-radius: 0.8rem;
+        border: none;
+        width: 30rem;
+        font-family: "Montserrat", sans-serif;
+        font-size: 2rem;
+    }
+
+    .input-submit {
+        border: 1px solid white;
+        border-radius: 0.8rem;
+
+        font-size: 2rem;
+
+        color: white;
+        padding: 1rem 2rem;
+        background-color: transparent;
+        transition: all 0.2s;
+        cursor: pointer;
+        font-family: "Montserrat", sans-serif;
+
+        &:hover {
+            transform: translateY(-2px);
+            background-color: white;
+            color: rgb(26, 25, 29);
+            border: none;
+        }
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .login-form {
+        padding: 4rem 10rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .login-form {
+        padding: 2rem 3rem;
+
+        .input-mail,
+        .input-password {
+            width: 20rem;
+            font-size: 1.5rem;
+        }
+
+        .form-container{
+            padding: 3rem;
+        }
+    }
+}

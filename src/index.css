@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 10px */
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: 'Montserrat', sans-serif;
+  color: #ccc;
+  background-color: #333;
+  overflow: hidden;
+  display: block;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* For scrolling the components contents on smaller devices with vertical layout */
+@media screen and (max-width: 1000px){
+  body{
+    height: 100%;
+    overflow: visible;
+  }
+}

@@ -1,0 +1,220 @@
+@import "../../scss/variables.scss";
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 15rem;
+    min-height: 100vh;
+
+    background-color: transparent;
+    background-image: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.253) 60%,
+            rgba(26, 25, 29, 0.493) 100%
+        ),
+        url("../../assets/images/background.jpg");
+    background-position: center center;
+    background-size: cover;
+
+    opacity: 0;
+    animation: fadeIn 1s 1.5s forwards;
+
+    &__paragraph {
+        width: 60%;
+        font-size: 22px;
+        letter-spacing: 2.2px;
+        text-transform: uppercase;
+        font-weight: 600;
+        opacity: 0;
+        animation: bounceIn 1s 1.5s forwards;
+        line-height: 3.2rem;
+
+        &__link{
+            text-decoration: none;
+            color: $primary-color;
+            cursor: pointer;
+        }
+
+    }
+
+    .lighter {
+        font-weight: 400;
+    }
+}
+
+// Media Queries to make mobile responsive
+
+@media screen and (max-width: 1300px) {
+    .homepage {
+        padding: 4rem 10rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .homepage {
+        padding: 2rem 3rem;
+
+        &__paragraph{
+            font-size: 4vw;
+            width: 100%;
+        }
+    }
+}
+
+// Animated Title
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 9vw;
+        text-transform: uppercase;
+    }
+}
+
+.glitch {
+    position: relative;
+    color: $primary-color;
+    mix-blend-mode: lighten;
+
+    &:before,
+    &:after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background: black;
+        clip: rect(0, 0, 0, 0);
+    }
+
+    &:before {
+        left: -1px;
+        text-shadow: 1px 0 rgba(red, 0.7);
+    }
+
+    &:after {
+        left: 1px;
+        text-shadow: -1px 0 rgba(blue, 0.7);
+    }
+
+    &.is-glitching {
+        &:before {
+            text-shadow: 4px 0 rgba(red, 0.7);
+            animation: glitch-1 0.8s infinite ease-in-out alternate-reverse;
+        }
+        &:after {
+            text-shadow: -5px 0 rgba(blue, 0.7);
+            animation: glitch-2 0.8s infinite ease-in-out alternate-reverse;
+        }
+    }
+}
+
+@keyframes glitch-1 {
+    0% {
+        clip: rect(36px, 9999px, 9px, 0);
+    }
+    25% {
+        clip: rect(25px, 9999px, 99px, 0);
+    }
+    50% {
+        clip: rect(50px, 9999px, 102px, 0);
+    }
+    75% {
+        clip: rect(30px, 9999px, 92px, 0);
+    }
+    100% {
+        clip: rect(91px, 9999px, 98px, 0);
+    }
+}
+
+@keyframes glitch-2 {
+    0% {
+        top: -1px;
+        left: 1px;
+        clip: rect(65px, 9999px, 119px, 0);
+    }
+    25% {
+        top: -6px;
+        left: 4px;
+        clip: rect(79px, 9999px, 19px, 0);
+    }
+    50% {
+        top: -3px;
+        left: 2px;
+        clip: rect(68px, 9999px, 11px, 0);
+    }
+    75% {
+        top: 0px;
+        left: -4px;
+        clip: rect(95px, 9999px, 53px, 0);
+    }
+    100% {
+        top: -1px;
+        left: -1px;
+        clip: rect(31px, 9999px, 149px, 0);
+    }
+}
+
+
+// Glowing Sphere Background
+  
+  @keyframes float {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(var(--translateY, 10px));}
+    100% {transform: translateY(0);}
+  }
+  
+  .sphere {
+    /* Default color values in the sphere */
+    --r: 255;
+    --g: 170;
+    --b: 3;
+    --main-rgb: var(--r), var(--g), var(--b);
+    /*  Colors for the glow and gradient  */
+    --star-outer-color: rgba(var(--main-rgb), 0.2);
+    --ball-border-color: rgba(var(--main-rgb), 0.3);
+    --ball-reflection-outer: rgba(var(--main-rgb), 0.062);
+    --ball-reflection-middle: rgba(var(--main-rgb), 0.048);
+    --ball-reflection-light: rgba(calc(var(--r) + 90), calc(var(--g) + 127), calc(var(--b) + 56), 0.521);
+  
+    --radius: 40px;  
+    display: inline-block;
+    width: calc(var(--radius) * 2);
+    height: calc(var(--radius) * 2);
+    border-radius: 100%;
+    border: 1px solid var(--ball-border-color);
+    background-image: radial-gradient(
+      circle at 0% 20%,
+      var(--ball-reflection-outer),
+      var(--ball-reflection-outer) 45%,
+      var(--ball-reflection-middle) 70%,
+      var(--ball-reflection-light) 90%
+    );
+    // position: relative;
+    top: 10%;
+    left: 10%;
+    position: absoulte;
+    animation: float 2s ease-in-out infinite;
+
+    margin-right: -15vw;
+  }
+  
+  .glow {
+    --glow-blur: calc(var(--radius) * 2);
+    --glow-spread: calc(var(--radius) * 1.25);
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: 100%;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    box-shadow: 0px 0px var(--glow-blur) var(--glow-spread) rgba(var(--main-rgb), 1);
+  }

@@ -1,0 +1,15 @@
+@import '../../scss/variables.scss';
+
+.text-animate {
+  display: inline-block;
+  min-width: 15px;
+
+  opacity: 0;
+  animation: bounceIn 1s 1s forwards;
+}
+
+@for $i from 1 through 40 {
+  .text-animate.idx-#{$i} {
+    animation-delay: #{calc($i / 10 + 1)}s;
+  }
+}
